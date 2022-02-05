@@ -26,7 +26,11 @@
 
 ## My App 📖 -
 
+### <u>_Front Repo_</u> - https://github.com/yakovcohen4/AWS-Dictionary-Front
+
 ### Test The App - 🔗 [Yakov's Dictionary](http://dictionary-yakov2.s3-website-eu-west-1.amazonaws.com/)
+
+### <u>_Back Repo_</u> - https://github.com/yakovcohen4/AWS-Dictionary-Back
 
 ### Test The Server 💯- [My server to get JSON answers](https://moj90vlvy0.execute-api.eu-west-1.amazonaws.com/dev)
 
