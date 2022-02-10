@@ -30,7 +30,7 @@ const NavBar = () => {
         </span>
         <span
           onClick={() => {
-            navigate('/word/:word');
+            navigate('/word/');
             closeNav();
           }}
         >
@@ -39,7 +39,7 @@ const NavBar = () => {
 
         <span
           onClick={() => {
-            navigate('/part-of-speech/:part');
+            navigate('/part-of-speech/');
             closeNav();
           }}
         >
