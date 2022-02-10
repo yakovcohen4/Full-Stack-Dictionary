@@ -197,7 +197,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app-lambda-dictionary/dev/1642941875721-2022-01-23T12:44:35.721Z/express-app-lambda-dictionary.zip"
+                "S3Key": "serverless/express-app-lambda-dictionary/dev/1644489622523-2022-02-10T10:40:22.523Z/express-app-lambda-dictionary.zip"
               },
               "Handler": "app.handler",
               "Runtime": "nodejs14.x",
@@ -220,14 +220,14 @@
               "DictionaryDashbackendLogGroup"
             ]
           },
-          "DictionaryDashbackendLambdaVersionOCBY8AC9rbj3nkPJF3Am03V3s1eVo27To4mlmAsSF4": {
+          "DictionaryDashbackendLambdaVersioniIRTYFno7Tmi1sfj9NXvAlvpmtuEGdfBv0T0NqlNN4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DictionaryDashbackendLambdaFunction"
               },
-              "CodeSha256": "IlTSn6fQBawt+UY9MZHguWeQeIsD1UsmVyMUDMjRrmQ="
+              "CodeSha256": "rVMyAIFgZcBrXNDh/9uzWn7OCaztncN61Ft/Fgx/Dpo="
             }
           },
           "ApiGatewayRestApi": {
@@ -352,7 +352,7 @@
               "DictionaryDashbackendLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1642941867738": {
+          "ApiGatewayDeployment1644489602002": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -415,7 +415,7 @@
           "DictionaryDashbackendLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DictionaryDashbackendLambdaVersionOCBY8AC9rbj3nkPJF3Am03V3s1eVo27To4mlmAsSF4"
+              "Ref": "DictionaryDashbackendLambdaVersioniIRTYFno7Tmi1sfj9NXvAlvpmtuEGdfBv0T0NqlNN4"
             },
             "Export": {
               "Name": "sls-express-app-lambda-dictionary-dev-DictionaryDashbackendLambdaFunctionQualifiedArn"
@@ -559,7 +559,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "DictionaryDashbackendLambdaVersionOCBY8AC9rbj3nkPJF3Am03V3s1eVo27To4mlmAsSF4"
+        "versionLogicalId": "DictionaryDashbackendLambdaVersioniIRTYFno7Tmi1sfj9NXvAlvpmtuEGdfBv0T0NqlNN4"
       }
     },
     "configValidationMode": "warn",
@@ -583,10 +583,10 @@
     },
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "C:\\Users\\yakov\\dev\\github\\Dictionary\\back\\.serverless\\express-app-lambda-dictionary.zip"
+    "artifact": "C:\\Users\\yakov\\dev\\github\\Full-Stack-Dictionary\\back\\.serverless\\express-app-lambda-dictionary.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app-lambda-dictionary/dev/1642941875721-2022-01-23T12:44:35.721Z",
+    "artifactDirectoryName": "serverless/express-app-lambda-dictionary/dev/1644489622523-2022-02-10T10:40:22.523Z",
     "artifact": "express-app-lambda-dictionary.zip"
   }
 }
