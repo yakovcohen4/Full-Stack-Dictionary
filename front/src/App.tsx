@@ -19,8 +19,8 @@ function App() {
         </h1>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/word/:word" element={<SearchWord />} />
-          <Route path="/part-of-speech/:part" element={<PartOfSpeech />} />
+          <Route path="/word/" element={<SearchWord />} />
+          <Route path="/part-of-speech/" element={<PartOfSpeech />} />
         </Routes>
       </div>
     </Router>
