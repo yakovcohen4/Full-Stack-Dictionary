@@ -22,6 +22,10 @@ const HomePage = () => {
           <li>Word</li>
           <li>Word with a specific part of speech</li>
           <li>A random word from a specific part of speech</li>
+          <li>
+            By clicking on any of the words you can switch to the definition of
+            the same word!{' '}
+          </li>
         </ul>
       </div>
     </div>
