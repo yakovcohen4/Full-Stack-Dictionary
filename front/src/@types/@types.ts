@@ -12,3 +12,10 @@ export interface FullDefinitions {
 // type handleSubmitPartOfSpeech = (
 //   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
 // ) => Promise<void>;
+
+export interface Item {
+  definitions: string[];
+  pos: string;
+  word: string;
+  synonyms?: string;
+}
