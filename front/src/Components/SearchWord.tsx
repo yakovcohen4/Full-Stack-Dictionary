@@ -3,13 +3,15 @@ import axios from 'axios';
 import { BASE_URL } from '../App';
 import Definition from './Definition';
 import { posList } from '../DataPOS';
+import { Item } from '../@types/@types';
 
 function SearchWord() {
   /***** STATES *****/
   const [word, setWord] = useState<null | string>(null);
-  const [Items, setItems] = useState<null | any>(null);
+  const [Items, setItems] = useState<null | Item[]>(null);
   const [loading, setLoading] = useState<boolean>(false);
   let [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
+  const [error, setError] = useState<null | string>(null);
 
   /***** FUNCTIONS *****/
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,21 +23,20 @@ function SearchWord() {
   ) => {
     e.preventDefault();
     setLoading(true);
-
+    setError(null);
     try {
       const res = await axios.get(
         `${BASE_URL}/${word!.replace(/[^a-zA-Z ]/g, '')}`
       );
 
-      if (res.status === 200) {
-        if (res.data.Items.length === 0) {
-          throw new Error('no result of this word');
-          // throw { status: 404, message: 'no result of this word' };
-        }
-        setItems(res.data.Items);
+      if (res.data.Items.length === 0) {
+        throw new Error('no result of this word');
       }
-    } catch (error) {
-      console.log(error);
+      setItems(res.data.Items);
+      // }
+    } catch (error: any) {
+      setError(error.message);
+      setItems(null);
     }
     setLoading(false);
   };
@@ -44,17 +45,19 @@ function SearchWord() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
     try {
       const res = await axios.get(`${BASE_URL}/${word}/${PartOfSpeech}`);
-      if (res.status === 200) {
-        if (res.data.Items.length === 0) {
-          throw new Error('no result of this word');
-        }
-        setItems(res.data.Items);
+      if (res.data.Items.length === 0) {
+        throw new Error('no result by word & POS');
       }
-    } catch (error) {
-      console.log(error);
+      setItems(res.data.Items);
+    } catch (error: any) {
+      setError(error.message);
+      setItems(null);
     }
+    setLoading(false);
   };
 
   return (
@@ -81,6 +84,10 @@ function SearchWord() {
         <label htmlFor="name" className="form__label">
           Search Word...
         </label>
+
+        <h2 style={{ textAlign: 'left' }}>
+          You can search word with specific pos
+        </h2>
         <ul className="choose-pos">
           <li>
             Choose Part Of Speech:
@@ -107,7 +114,7 @@ function SearchWord() {
 
       {loading && <h2 className="animate">Loading</h2>}
       {Items &&
-        Items.map((item: any) => {
+        Items.map((item: Item) => {
           return (
             <div key={item.pos} className="item">
               <div className="item-pos">[{item.pos}]</div>
@@ -126,6 +133,7 @@ function SearchWord() {
             </div>
           );
         })}
+      {error && <h2 className="animate">{error}</h2>}
     </form>
   );
 }
