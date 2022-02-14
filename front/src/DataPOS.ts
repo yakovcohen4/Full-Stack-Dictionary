@@ -1,9 +1,11 @@
 export const posList = [
+  { key: 'All', value: null },
   { key: 'Noun', value: 'n.' },
-  { key: 'Adjective', value: 'adj.' },
-  { key: 'Preposition', value: 'prep.' },
-  { key: 'Adverb', value: 'adv.' },
   { key: 'Pronoun', value: 'pro.' },
+  { key: 'Verb', value: 'v.' },
+  { key: 'Adjective', value: 'adj.' },
+  { key: 'Adverb', value: 'adv.' },
+  { key: 'Preposition', value: 'prep.' },
   { key: 'Conjunction', value: 'conj.' },
-  { key: 'Participle', value: 'ptcp.' },
+  { key: 'Interjections', value: 'interj.' },
 ];
