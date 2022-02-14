@@ -54,31 +54,6 @@ function SearchWord() {
     }, 6000);
   };
 
-  // const handleClick = async (
-  //   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  // ) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setError(null);
-  //   try {
-  //     if (word === null || word === '') {
-  //       throw new Error('Enter a word');
-  //     }
-  //     const res = await axios.get(`${BASE_URL}/${word}/${PartOfSpeech}`);
-  //     if (res.data.Items.length === 0) {
-  //       throw new Error('no result by word & POS');
-  //     }
-  //     setItems(res.data.Items);
-  //   } catch (error: any) {
-  //     setError(error.message);
-  //     setItems(null);
-  //   }
-  //   setLoading(false);
-  //   setTimeout(() => {
-  //     setError(null);
-  //   }, 6000);
-  // };
-
   return (
     <form id={'form-word'} onSubmit={e => handleSubmit(e)}>
       {error && <span className="animate">{error}</span>}
