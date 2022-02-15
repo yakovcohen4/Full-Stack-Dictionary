@@ -1,5 +1,4 @@
-export const posList = [
-  { key: 'All', value: null },
+export const posListSearchRandomWord = [
   { key: 'Noun', value: 'n.' },
   { key: 'Pronoun', value: 'pro.' },
   { key: 'Verb', value: 'v.' },
