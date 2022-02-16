@@ -5,26 +5,16 @@ const HomePage = () => {
       <div className="para">
         <span>
           <p>Welcome to my Dictionary</p>
-          <img
-            src="https://c.tenor.com/JlDEHKKYppEAAAAi/dictionaries-research.gif"
-            alt="dictionary"
-            width={150}
-            height={150}
-            style={{
-              position: 'relative',
-              left: '50%',
-              transform: 'translateX(-50%)',
-            }}
-          />
           <p>In my dictionary you can search by:</p>
         </span>
         <ul>
-          <li>Word</li>
-          <li>Word with a specific part of speech</li>
-          <li>A random word from a specific part of speech</li>
+          <li>Words and get all part of speech</li>
+          <li>Words with a specific part of speech</li>
+          <li>Get random words from a specific part of speech</li>
+          <li>Get random words in random parts of speech</li>
           <li>
-            By clicking on any of the words you can switch to the definition of
-            the same word!{' '}
+            By clicking on any of the words in the results, you can switch to
+            the definition of the same word!
           </li>
         </ul>
       </div>
