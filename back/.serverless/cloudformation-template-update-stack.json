@@ -173,7 +173,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/express-app-lambda-dictionary/dev/1644489622523-2022-02-10T10:40:22.523Z/express-app-lambda-dictionary.zip"
+          "S3Key": "serverless/express-app-lambda-dictionary/dev/1645009851071-2022-02-16T11:10:51.071Z/express-app-lambda-dictionary.zip"
         },
         "Handler": "app.handler",
         "Runtime": "nodejs14.x",
@@ -196,14 +196,14 @@
         "DictionaryDashbackendLogGroup"
       ]
     },
-    "DictionaryDashbackendLambdaVersioniIRTYFno7Tmi1sfj9NXvAlvpmtuEGdfBv0T0NqlNN4": {
+    "DictionaryDashbackendLambdaVersion7ul5N9hemVSXwBwTOUpZc0szxE1zAKVPdUgTwZl7w": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DictionaryDashbackendLambdaFunction"
         },
-        "CodeSha256": "rVMyAIFgZcBrXNDh/9uzWn7OCaztncN61Ft/Fgx/Dpo="
+        "CodeSha256": "vQbBvf2+qF9ssM9XGQXIlQEXahfW2UUWb7DzDjYTxJo="
       }
     },
     "ApiGatewayRestApi": {
@@ -328,7 +328,7 @@
         "DictionaryDashbackendLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1644489602002": {
+    "ApiGatewayDeployment1645009842127": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -391,7 +391,7 @@
     "DictionaryDashbackendLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DictionaryDashbackendLambdaVersioniIRTYFno7Tmi1sfj9NXvAlvpmtuEGdfBv0T0NqlNN4"
+        "Ref": "DictionaryDashbackendLambdaVersion7ul5N9hemVSXwBwTOUpZc0szxE1zAKVPdUgTwZl7w"
       },
       "Export": {
         "Name": "sls-express-app-lambda-dictionary-dev-DictionaryDashbackendLambdaFunctionQualifiedArn"
