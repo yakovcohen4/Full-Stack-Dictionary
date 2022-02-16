@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../App';
 import Definition from './Definition';
-import { posListSearchRandomWord as posList } from '../Data-Pos/pos-search-random';
+import { posList } from '../Data/PartOfSpeechList';
 import { Item } from '../@types/@types';
 
 function PartOfSpeech() {

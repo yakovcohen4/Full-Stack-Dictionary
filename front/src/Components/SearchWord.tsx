@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../App';
 import Definition from './Definition';
-import { posListSearchWord } from '../Data-Pos/pos-search-word';
+import { posList } from '../Data/PartOfSpeechList';
 import { Item } from '../@types/@types';
 
 function SearchWord() {
@@ -92,7 +92,7 @@ function SearchWord() {
               Choose Part Of Speech:{' '}
               <i className="fa-solid fa-square-caret-down"></i>
               <ul className="dropdown">
-                {posListSearchWord.map((part, i) => {
+                {posList.map((part, i) => {
                   return (
                     <li key={i}>
                       <a onClick={() => setPartOfSpeech(part.value)}>
@@ -105,7 +105,7 @@ function SearchWord() {
             </li>
           </ul>
           <span className="part-result" id="word-part-result">
-            {PartOfSpeech ? PartOfSpeech : 'All'}
+            {PartOfSpeech ? PartOfSpeech : 'Random'}
           </span>
         </div>
       </div>
