@@ -43,7 +43,7 @@ const NavBar = () => {
             closeNav();
           }}
         >
-          Part Of Speech
+          Random words
         </span>
       </span>
 
