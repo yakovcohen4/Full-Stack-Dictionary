@@ -57,9 +57,10 @@ function SearchWord() {
     <div>
       {loading ? (
         <Loading />
+      ) : error ? (
+        <span className="animate">{error}</span>
       ) : (
         <form className="form-tag" onSubmit={e => handleSubmit(e)}>
-          {error && <span className="animate">{error}</span>}
           <h3 className="headers-h5">Search Word</h3>
           <div className="form-search">
             <h2 className="form-explanation-search-h2">
@@ -119,7 +120,6 @@ function SearchWord() {
           )}
         </form>
       )}
-      {/* {error && <span className="animate">{error}</span>} */}
     </div>
   );
 }

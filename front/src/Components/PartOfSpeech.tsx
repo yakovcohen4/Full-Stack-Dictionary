@@ -23,6 +23,7 @@ function PartOfSpeech() {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    // setData(null);
     try {
       const part =
         PartOfSpeech === null
@@ -51,9 +52,10 @@ function PartOfSpeech() {
     <div>
       {loading ? (
         <Loading />
+      ) : error ? (
+        <span className="animate">{error}</span>
       ) : (
         <form className="form-tag">
-          {error && <span className="animate">{error}</span>}
           <h3 className="headers-h5">Random Word - POS</h3>
           <div className="form-search">
             <h2 className="form-explanation-search-h2">
@@ -101,7 +103,6 @@ function PartOfSpeech() {
           )}
         </form>
       )}
-      {error && <span className="animate">{error}</span>}
     </div>
   );
 }
