@@ -55,94 +55,73 @@ function SearchWord() {
   };
 
   return (
-    <form id={'form-word'} onSubmit={e => handleSubmit(e)}>
-      {error && <span className="animate">{error}</span>}
-      <h3 className="headers-h5">Search Word</h3>
-      <div className="search-box-all">
-        <h2 className="explanation-search-word-page">
-          - You can search word.
-          <br />- You can search word with specific pos.
-        </h2>
-        <div className="search-box">
-          <input
-            type="input"
-            className="form__field"
-            placeholder="Type to Search..."
-            name="name"
-            value={word ? word : ''}
-            onChange={e => handleChange(e)}
-            id="name"
-            required
-          />
-          <label htmlFor="name" className="form__label">
-            Search Word...
-          </label>
     <div>
       {loading ? (
         <Loading />
       ) : (
+        <form className="form-tag" onSubmit={e => handleSubmit(e)}>
+          {error && <span className="animate">{error}</span>}
+          <h3 className="headers-h5">Search Word</h3>
+          <div className="form-search">
+            <h2 className="form-explanation-search-h2">
+              You can search words and get all definitions about the word, or
+              search words with a specific part of speech.
+            </h2>
+            <div className="form-search-box-div">
+              <input
+                type="input"
+                className="form__field"
+                placeholder="Type to Search..."
+                name="name"
+                value={word ? word : ''}
+                onChange={e => handleChange(e)}
+                id="name"
+                required
+              />
+              <label htmlFor="name" className="form__label">
+                Search Word...
+              </label>
 
-          <button
-            // onClick={e => handleSubmit(e)}
-            className="btn-search"
-            id="search-word-btn"
-          >
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
-        <div className="div-search-pos">
-          <ul className="choose-pos">
-            <li>
-              Choose Part Of Speech:{' '}
-              <i className="fa-solid fa-square-caret-down"></i>
-              <ul className="dropdown">
-                {posList.map((part, i) => {
-                  return (
-                    <li key={i}>
-                      <a onClick={() => setPartOfSpeech(part.value)}>
-                        {part.key}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          </ul>
-          <span className="part-result" id="word-part-result">
-            {PartOfSpeech ? PartOfSpeech : 'Random'}
-          </span>
-        </div>
-      </div>
-
-      {loading && <h2 className="animate">Loading</h2>}
-      {Items &&
-        Items.map((item: Item) => {
-          return (
-            <div key={item.pos} className="item">
-              <div className="item-pos">[{item.pos}]</div>
-              <div className="item-definitions">
-                {item.definitions.map((definition: string, index: number) => {
-                  return (
-                    <Definition
-                      key={index}
-                      definition={definition}
-                      setItems={setItems}
-                      setLoading={setLoading}
-                    />
-                  );
-                })}
-              </div>
+              <button className="form-btn-search">
+                <i className="fas fa-search"></i>
+              </button>
             </div>
-          );
-        })}
-    </form>
+            <div className="form-div-choose-pos">
+              <ul className="choose-pos">
+                <li>
+                  Choose Part Of Speech:{' '}
+                  <i className="fa-solid fa-square-caret-down"></i>
+                  <ul>
+                    {posList.map((part, i) => {
+                      return (
+                        <li key={i}>
+                          <a onClick={() => setPartOfSpeech(part.value)}>
+                            {part.key}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              </ul>
+              <span className="span-part-of-speech-choose">
+                {PartOfSpeech ? PartOfSpeech : 'All'}
+              </span>
+            </div>
+          </div>
+
           {Items && (
             <ResultSearch
               data={Items}
               setData={setItems}
               setLoading={setLoading}
+              setError={setError}
             />
           )}
+        </form>
+      )}
+      {/* {error && <span className="animate">{error}</span>} */}
+    </div>
   );
 }
 
