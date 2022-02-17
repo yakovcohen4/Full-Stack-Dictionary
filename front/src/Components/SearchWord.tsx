@@ -7,7 +7,6 @@ import { posList } from '../Data/PartOfSpeechList';
 import { Item } from '../@types/@types';
 // Components
 import Loading from './Loading';
-import Definition from './Definition';
 import ResultSearch from './ResultSearch';
 
 function SearchWord() {
