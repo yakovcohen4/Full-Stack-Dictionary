@@ -30,33 +30,28 @@ function SearchWord() {
     setLoading(true);
     setError(null);
     try {
-      if (word === null || word === '') {
-        throw new Error('Enter a word');
-      }
       // search word or word & part of speech
       if (PartOfSpeech === null) {
-        const res = await axios.get(
-          `${BASE_URL}/${word.replace(/[^a-zA-Z ]/g, '')}`
-        );
+        const res = await axios.get(`${BASE_URL}/${word}`);
+        setLoading(false);
         if (res.data.Items.length === 0) {
-          throw new Error('no result of this word');
+          throw new Error(`no result for ${word}`);
         }
         setItems(res.data.Items);
       } else {
         const res = await axios.get(`${BASE_URL}/${word}/${PartOfSpeech}`);
+        setLoading(false);
         if (res.data.Items.length === 0) {
-          throw new Error('no result of this word & part of speech');
+          throw new Error(`no result for ${word} & part of speech`);
         }
         setItems(res.data.Items);
       }
     } catch (error: any) {
       setError(error.message);
-      setItems(null);
+      setTimeout(() => {
+        setError(null);
+      }, 6000);
     }
-    setLoading(false);
-    setTimeout(() => {
-      setError(null);
-    }, 6000);
   };
 
   return (
