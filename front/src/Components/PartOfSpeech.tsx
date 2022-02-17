@@ -91,14 +91,17 @@ function PartOfSpeech() {
               </button>
             </div>
           </div>
-        ))}
-      {error && <h2 className="animate">{error}</h2>}
           {data && (
             <ResultSearch
               data={data}
               setData={setData}
               setLoading={setLoading}
+              setError={setError}
             />
+          )}
+        </form>
+      )}
+      {error && <span className="animate">{error}</span>}
     </div>
   );
 }
