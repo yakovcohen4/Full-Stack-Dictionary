@@ -30,17 +30,22 @@ function PartOfSpeech() {
           ? posList[Math.floor(Math.random() * posList.length)].value
           : PartOfSpeech;
       const res = await axios.get(`${BASE_URL}/part-of-speech/${part}`);
-      if (res.status === 200) {
-        if (res.data.definitions.length === 0) {
-          throw new Error('no result of this word');
-        }
-        setData([res.data]);
+      setLoading(false);
+      // if (res.status === 200) {
+      //   console.log(res);
+      //   console.log(res.data);
+      if (res.data === 'no result for part of speak') {
+        throw new Error('no result for part of speak');
       }
-      setPartOfSpeech(null);
+      setData([res.data]);
+      // }
     } catch (error: any) {
       setError(error.message);
+      setData(null);
+      setTimeout(() => {
+        setError(null);
+      }, 6000);
     }
-    setLoading(false);
   };
 
   return (
