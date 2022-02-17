@@ -95,9 +95,9 @@ function SearchWord() {
                     {posList.map((part, i) => {
                       return (
                         <li key={i}>
-                          <a onClick={() => setPartOfSpeech(part.value)}>
+                          <span onClick={() => setPartOfSpeech(part.value)}>
                             {part.key}
-                          </a>
+                          </span>
                         </li>
                       );
                     })}

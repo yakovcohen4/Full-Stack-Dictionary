@@ -86,11 +86,11 @@ body {
     font-family: arvo;
   }
 
-  li a {
+  li span {
     color: black;
   }
 
-  li a:hover {
+  li span:hover {
     color: #3ca0e7;
   }
 
@@ -128,7 +128,7 @@ body {
     border-style: none;
   }
 
-  li ul li a:hover {
+  li ul li span:hover {
     padding-left: 10px;
     border-left: 2px solid #3ca0e7;
     transition: all 0.3s ease;
