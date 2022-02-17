@@ -24,7 +24,11 @@ function PartOfSpeech() {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get(`${BASE_URL}/part-of-speech/${PartOfSpeech}`);
+      const part =
+        PartOfSpeech === null
+          ? posList[Math.floor(Math.random() * posList.length)].value
+          : PartOfSpeech;
+      const res = await axios.get(`${BASE_URL}/part-of-speech/${part}`);
       if (res.status === 200) {
         if (res.data.definitions.length === 0) {
           throw new Error('no result of this word');
