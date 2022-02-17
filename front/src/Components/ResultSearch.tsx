@@ -4,7 +4,12 @@ import { ResultSearchProps } from '../@types/@types';
 // Components
 import Definition from './Definition';
 
-const ResultSearch = ({ data, setData, setLoading }: ResultSearchProps) => {
+const ResultSearch = ({
+  data,
+  setData,
+  setLoading,
+  setError,
+}: ResultSearchProps) => {
   return (
     <div className="result">
       <div className="word-result">{data[0].word}</div>
@@ -21,6 +26,7 @@ const ResultSearch = ({ data, setData, setLoading }: ResultSearchProps) => {
                       definition={definition}
                       setItems={setData}
                       setLoading={setLoading}
+                      setError={setError}
                     />
                   );
                 })}

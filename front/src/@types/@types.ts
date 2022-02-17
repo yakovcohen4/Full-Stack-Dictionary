@@ -3,6 +3,7 @@ export interface FullDefinitions {
   // handleSubmit: handleSubmitSearchWord | handleSubmitPartOfSpeech;
   setItems: React.Dispatch<any>;
   setLoading: React.Dispatch<boolean>;
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 // type handleSubmitSearchWord = (
@@ -24,4 +25,5 @@ export interface ResultSearchProps {
   data: Item[];
   setData: React.Dispatch<React.SetStateAction<Item[] | null>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
 }

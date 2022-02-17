@@ -4,36 +4,40 @@ import { MouseEvent } from 'react';
 import { FullDefinitions } from '../@types/@types';
 import { BASE_URL } from '../App';
 
-function Definitions({ definition, setItems, setLoading }: FullDefinitions) {
+function Definitions({
+  definition,
+  setItems,
+  setLoading,
+  setError,
+}: FullDefinitions) {
   /***** FUNCTIONS *****/
   const searchByClick = async (
     e: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>
   ) => {
     const word = (e.target as HTMLSpanElement).innerHTML;
-
     setLoading(true);
 
     try {
       const res = await axios.get(
         `${BASE_URL}/${word!.replace(/[^a-zA-Z ]/g, '')}`
       );
+      setLoading(false);
 
-      if (res.status === 200) {
-        if (res.data.Items.length === 0) {
-          throw new Error('no result of this word');
-          // throw { status: 404, message: 'no result of this word' };
-        }
-
-        if (res.data.Items.length) {
-          setItems(res.data.Items);
-        } else {
-          setItems([res.data.Items]);
-        }
+      if (res.data.Items.length === 0) {
+        throw new Error(`no result for ${word.replace(/[^a-zA-Z ]/g, '')}`);
       }
-    } catch (error) {
-      console.log(error);
+
+      if (res.data.Items.length) {
+        setItems(res.data.Items);
+      } else {
+        setItems([res.data.Items]);
+      }
+    } catch (error: any) {
+      setError(error.message);
+      setTimeout(() => {
+        setError(null);
+      }, 6000);
     }
-    setLoading(false);
   };
 
   const definitionArr = definition.split(' ');
