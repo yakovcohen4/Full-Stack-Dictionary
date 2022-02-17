@@ -50,40 +50,38 @@ function PartOfSpeech() {
 
   return (
     <div>
-      <form role="navigation" className="primary-navigation">
-        <h3 className="headers-h5" id="header-pos">
-          Random Word by POS
-        </h3>
-        <button className="btn-search" onClick={e => handleSubmit(e)}>
-          <i className="fas fa-search"></i>
-        </button>
-        <ul>
-          <li>
-            Choose Part Of Speech:
-            <ul className="dropdown">
-              {posList.map((part, i) => {
-                return (
-                  <li key={i}>
-                    <a onClick={() => setPartOfSpeech(part.value)}>
-                      {part.key}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </li>
-        </ul>
-        <span className="part-result">{PartOfSpeech}</span>
-      </form>
-      {loading && <h2 className="animate">Loading</h2>}
-      {data &&
-        data.map((data: Item) => (
-          <div key={data.pos}>
-            <div className="word-div">
-              The random word: <span className="word">{data.word}</span>
       {loading ? (
         <Loading />
       ) : (
+        <form className="form-tag">
+          {error && <span className="animate">{error}</span>}
+          <h3 className="headers-h5">Random Word - POS</h3>
+          <div className="form-search">
+            <h2 className="form-explanation-search-h2">
+              You can search random word with specific part of speech.
+            </h2>
+
+            <div className="form-div-choose-pos">
+              <ul className="choose-pos">
+                <li>
+                  Choose Part Of Speech:{' '}
+                  <i className="fa-solid fa-square-caret-down"></i>
+                  <ul>
+                    {posList.map((part, i) => {
+                      return (
+                        <li key={i}>
+                          <a onClick={() => setPartOfSpeech(part.value)}>
+                            {part.key}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              </ul>
+              <span className="span-part-of-speech-choose">
+                {PartOfSpeech ? PartOfSpeech : 'Random'}
+              </span>
             </div>
             <div className="item">
               <div className="item-pos">[{data.pos}]</div>
