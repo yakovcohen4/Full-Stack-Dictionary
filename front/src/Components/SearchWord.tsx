@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../App';
-import Definition from './Definition';
+// data
 import { posList } from '../Data/PartOfSpeechList';
+// types
 import { Item } from '../@types/@types';
+// Components
+import Loading from './Loading';
+import Definition from './Definition';
 
 function SearchWord() {
   /***** STATES *****/
@@ -77,6 +81,10 @@ function SearchWord() {
           <label htmlFor="name" className="form__label">
             Search Word...
           </label>
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
 
           <button
             // onClick={e => handleSubmit(e)}

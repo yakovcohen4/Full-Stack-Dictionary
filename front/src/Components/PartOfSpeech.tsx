@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../App';
-import Definition from './Definition';
+// data
 import { posList } from '../Data/PartOfSpeechList';
+// types
 import { Item } from '../@types/@types';
+// Components
+import Loading from './Loading';
+import Definition from './Definition';
 
 function PartOfSpeech() {
   /***** STATES *****/
@@ -67,6 +71,9 @@ function PartOfSpeech() {
           <div key={data.pos}>
             <div className="word-div">
               The random word: <span className="word">{data.word}</span>
+      {loading ? (
+        <Loading />
+      ) : (
             </div>
             <div className="item">
               <div className="item-pos">[{data.pos}]</div>
