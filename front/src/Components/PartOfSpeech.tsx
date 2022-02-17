@@ -83,20 +83,13 @@ function PartOfSpeech() {
                 {PartOfSpeech ? PartOfSpeech : 'Random'}
               </span>
             </div>
-            <div className="item">
-              <div className="item-pos">[{data.pos}]</div>
-              <div className="item-definitions">
-                {data.definitions.map((definition: string, index: number) => {
-                  return (
-                    <Definition
-                      key={index}
-                      definition={definition}
-                      setItems={setData}
-                      setLoading={setLoading}
-                    />
-                  );
-                })}
-              </div>
+            <div id={'search-box-pos'}>
+              <button
+                className="form-btn-search"
+                onClick={e => handleSubmit(e)}
+              >
+                <i className="fas fa-search"></i>
+              </button>
             </div>
           </div>
         ))}
