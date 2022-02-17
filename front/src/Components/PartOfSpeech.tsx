@@ -12,7 +12,7 @@ import ResultSearch from './ResultSearch';
 
 function PartOfSpeech() {
   /***** STATES *****/
-  let [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
+  const [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<null | Item[]>(null);
   const [error, setError] = useState<null | string>(null);
