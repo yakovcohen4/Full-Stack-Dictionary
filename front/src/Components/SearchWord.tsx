@@ -8,6 +8,7 @@ import { Item } from '../@types/@types';
 // Components
 import Loading from './Loading';
 import Definition from './Definition';
+import ResultSearch from './ResultSearch';
 
 function SearchWord() {
   /***** STATES *****/
@@ -140,6 +141,13 @@ function SearchWord() {
           );
         })}
     </form>
+          {Items && (
+            <ResultSearch
+              data={Items}
+              setData={setItems}
+              setLoading={setLoading}
+            />
+          )}
   );
 }
 

@@ -8,6 +8,7 @@ import { Item } from '../@types/@types';
 // Components
 import Loading from './Loading';
 import Definition from './Definition';
+import ResultSearch from './ResultSearch';
 
 function PartOfSpeech() {
   /***** STATES *****/
@@ -97,6 +98,12 @@ function PartOfSpeech() {
           </div>
         ))}
       {error && <h2 className="animate">{error}</h2>}
+          {data && (
+            <ResultSearch
+              data={data}
+              setData={setData}
+              setLoading={setLoading}
+            />
     </div>
   );
 }

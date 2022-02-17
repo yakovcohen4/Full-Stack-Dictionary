@@ -19,3 +19,9 @@ export interface Item {
   word: string;
   synonyms?: string;
 }
+
+export interface ResultSearchProps {
+  data: Item[];
+  setData: React.Dispatch<React.SetStateAction<Item[] | null>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
