@@ -8,6 +8,7 @@ import { Item } from '../@types/@types';
 // Components
 import Loading from './Loading';
 import ResultSearch from './ResultSearch';
+import ErrorPage from './ErrorPage';
 
 function SearchWord() {
   /***** STATES *****/
@@ -58,7 +59,7 @@ function SearchWord() {
       {loading ? (
         <Loading />
       ) : error ? (
-        <span className="animate">{error}</span>
+        <ErrorPage wordError={error} />
       ) : (
         <form className="form-tag" onSubmit={e => handleSubmit(e)}>
           <h3 className="headers-h5">Search Word</h3>

@@ -8,6 +8,7 @@ import { Item } from '../@types/@types';
 // Components
 import Loading from './Loading';
 import ResultSearch from './ResultSearch';
+import ErrorPage from './ErrorPage';
 
 function PartOfSpeech() {
   /***** STATES *****/
@@ -53,7 +54,7 @@ function PartOfSpeech() {
       {loading ? (
         <Loading />
       ) : error ? (
-        <span className="animate">{error}</span>
+        <ErrorPage wordError={error} />
       ) : (
         <form className="form-tag">
           <h3 className="headers-h5">Random Word - POS</h3>
