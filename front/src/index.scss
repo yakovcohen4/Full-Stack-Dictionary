@@ -389,7 +389,44 @@ form .headers-h5 {
   z-index: -1;
   font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   .img-error {
-    animation: move 1s infinite 1.2s ease-in-out;
+    // animation: drop 500ms ease;
+    animation: move 1s infinite 1.2s ease-in-out, drop 1700ms ease;
     animation-direction: alternate;
     height: 80%;
     object-fit: cover;
+  }
+  .error-header {
+    font-size: 1.5rem;
+    // font-weight: 500;
+    margin-top: 0;
+    animation: drop 1700ms ease;
+  }
+  .error-explanation {
+    animation: drop 1700ms ease;
+    font-size: 1.2rem;
+    span {
+      font-size: 1.3em;
+      font-weight: 550;
+      // font-style: inherit;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
