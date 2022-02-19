@@ -34,7 +34,7 @@ const NavBar = () => {
             closeNav();
           }}
         >
-          Search Word
+          Search Words
         </span>
 
         <span
