@@ -15,7 +15,7 @@ function PartOfSpeech() {
   const [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<null | Item[]>(null);
-  const [error, setError] = useState<null | string>(null);
+  const [error, setError] = useState<null | string>('null');
 
   /***** FUNCTIONS *****/
   const handleSubmit = async (
@@ -32,14 +32,10 @@ function PartOfSpeech() {
           : PartOfSpeech;
       const res = await axios.get(`${BASE_URL}/part-of-speech/${part}`);
       setLoading(false);
-      // if (res.status === 200) {
-      //   console.log(res);
-      //   console.log(res.data);
       if (res.data === 'no result for part of speak') {
         throw new Error('no result for part of speak');
       }
       setData([res.data]);
-      // }
     } catch (error: any) {
       setError(error.message);
       setData(null);
