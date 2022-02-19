@@ -144,36 +144,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
-
-.animate {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-size: 20px;
-  font-family: cursive;
-  font-weight: 500;
-  animation: load 1.5s infinite 1s ease-in-out;
-  animation-direction: alternate;
-  text-shadow: 0 0 1px white;
-}
-
-@keyframes load {
-  0% {
-    opacity: 0.01;
-    /*         font-size: 10px; */
-    /* 				font-weight: 400; */
-    filter: blur(1.5px);
-    letter-spacing: 2px;
-  }
-  100% {
-    /*         opacity: 1; */
-    /*         font-size: 12px; */
-    /* 				font-weight:600; */
-    /* 				filter: blur(0); */
-  }
-}
 // ****** Loading ******
 
 // ****** Navbar ******
@@ -405,3 +375,21 @@ form .headers-h5 {
   justify-content: flex-start;
 }
 // ****** Form ******
+
+// error page
+.error-div {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 60vh;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 35px;
+  z-index: -1;
+  font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  .img-error {
+    animation: move 1s infinite 1.2s ease-in-out;
+    animation-direction: alternate;
+    height: 80%;
+    object-fit: cover;
