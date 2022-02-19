@@ -10,7 +10,7 @@ import Loading from './Loading';
 import ResultSearch from './ResultSearch';
 import ErrorPage from './ErrorPage';
 
-function PartOfSpeech() {
+function RandomWord() {
   /***** STATES *****/
   const [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -104,4 +104,4 @@ function PartOfSpeech() {
   );
 }
 
-export default PartOfSpeech;
+export default RandomWord;
