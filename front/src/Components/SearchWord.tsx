@@ -93,6 +93,9 @@ function SearchWord() {
                   Choose Part Of Speech:{' '}
                   <i className="fa-solid fa-square-caret-down"></i>
                   <ul>
+                    <li>
+                      <span onClick={() => setPartOfSpeech(null)}>{'All'}</span>
+                    </li>
                     {posList.map((part, i) => {
                       return (
                         <li key={i}>

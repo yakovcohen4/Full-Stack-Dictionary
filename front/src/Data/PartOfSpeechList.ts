@@ -1,5 +1,4 @@
 export const posList = [
-  { key: 'Random', value: null },
   { key: 'Noun', value: 'n.' },
   { key: 'Pronoun', value: 'pron.' },
   { key: 'Verb', value: 'v.' },
