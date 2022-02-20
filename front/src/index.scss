@@ -4,9 +4,9 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -59,13 +59,12 @@ body {
   .item-definitions {
     padding-left: 3%;
     font-size: smaller;
-    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 }
 .word-result {
   text-transform: lowercase;
   font-size: 1.8rem;
-  font-weight: 450;
+  font-weight: 600;
   &::first-letter {
     text-transform: uppercase;
   }
@@ -83,7 +82,6 @@ body {
     padding: 0 0px;
     position: relative;
     text-decoration: none;
-    font-family: arvo;
   }
 
   li span {
@@ -197,7 +195,7 @@ body {
   text-align: left;
   animation: drop 1500ms ease;
   h3 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif, 'Times New Roman', Times, serif;
     font-size: 2em;
     font-weight: 500;
     margin-top: 100px;
@@ -240,7 +238,7 @@ $gray: #160e86;
 
 form .headers-h5 {
   text-align: left;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Poppins', sans-serif, 'Times New Roman', Times, serif;
   font-size: 2em;
   font-weight: 500;
   margin-left: 0.5em;
@@ -256,7 +254,8 @@ form .headers-h5 {
 }
 .form__field {
   margin: 10px 10px;
-  font-family: inherit;
+  font-family: 'Popins', sans-serif !important;
+  font-weight: 500 !important;
   width: 90%;
   border: 0;
   border-bottom: 2px solid $gray;
