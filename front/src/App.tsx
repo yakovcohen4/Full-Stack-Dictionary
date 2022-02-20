@@ -1,5 +1,5 @@
 import NavBar from './Components/NavBar';
-import PartOfSpeech from './Components/PartOfSpeech';
+import RandomWord from './Components/RandomWord';
 import SearchWord from './Components/SearchWord';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/word/" element={<SearchWord />} />
-          <Route path="/part-of-speech/" element={<PartOfSpeech />} />
+          <Route path="/part-of-speech/" element={<RandomWord />} />
         </Routes>
       </div>
     </Router>
