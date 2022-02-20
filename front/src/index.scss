@@ -32,6 +32,7 @@ body {
   color: #fff;
   background-color: rgb(10, 37, 87);
   border-bottom: black 2px solid;
+  z-index: 5;
 }
 
 // items-result
@@ -195,6 +196,7 @@ body {
 // ****** Home Page ******
 .homepage-div {
   text-align: left;
+  animation: drop 1500ms ease;
   h3 {
     font-family: cursive;
     font-size: 2em;
@@ -247,6 +249,7 @@ form .headers-h5 {
 }
 
 .form-tag {
+  animation: drop 1200ms ease;
   // position: relative;
   margin-top: 80px;
   height: 90vh;
