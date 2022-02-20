@@ -35,14 +35,14 @@ function SearchWord() {
         const res = await axios.get(`${BASE_URL}/${word}`);
         setLoading(false);
         if (res.data.Items.length === 0) {
-          throw new Error(`no result for ${word}`);
+          throw new Error(`${word}`);
         }
         setItems(res.data.Items);
       } else {
         const res = await axios.get(`${BASE_URL}/${word}/${PartOfSpeech}`);
         setLoading(false);
         if (res.data.Items.length === 0) {
-          throw new Error(`no result for ${word} & part of speech`);
+          throw new Error(`${word} & ${PartOfSpeech}`);
         }
         setItems(res.data.Items);
       }
