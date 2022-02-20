@@ -1,4 +1,4 @@
-import loader from './../Data/loader-gif.gif';
+import loader from './../Data/loader-gif-unscreen.gif';
 
 const Loading = () => {
   return <img src={loader} alt="dictionary" className="loading-gif"></img>;
