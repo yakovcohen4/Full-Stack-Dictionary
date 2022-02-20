@@ -30,6 +30,14 @@ function SearchWord() {
     setLoading(true);
     setError(null);
     try {
+      const wordWithOutSpace = word!.replace(/\s/g, 'space');
+      const wordWithOutSpecialChar = word!.replace(/[^\w\s]/gi, '');
+
+      if (word! !== wordWithOutSpecialChar || word! !== wordWithOutSpace) {
+        setLoading(false);
+        throw new Error('search again');
+      }
+
       // search word or word & part of speech
       if (PartOfSpeech === null) {
         const res = await axios.get(`${BASE_URL}/${word}`);
@@ -65,8 +73,9 @@ function SearchWord() {
           <h3 className="headers-h5">Search Word</h3>
           <div className="form-search">
             <h2 className="form-explanation-search-h2">
-              You can search words and get all definitions about the word, or
-              search words with a specific part of speech.
+              You can search words or search words with a specific part of
+              speech.
+              <br /> Also, you can search by clicking on the result words.
             </h2>
             <div className="form-search-box-div">
               <input

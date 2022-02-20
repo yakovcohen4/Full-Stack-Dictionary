@@ -18,15 +18,21 @@ function Definitions({
     setLoading(true);
 
     try {
-      const res = await axios.get(
-        `${BASE_URL}/${word!.replace(/[^a-zA-Z ]/g, '')}`
-      );
+      const wordFilter = word.replace(/[^a-zA-Z ]/g, '');
+
+      // if word is empty -> dont send to server
+      if (wordFilter === ' ') {
+        setLoading(false);
+        throw new Error(' ');
+      }
+
+      const res = await axios.get(`${BASE_URL}/${wordFilter}`);
       setLoading(false);
 
       if (res.data.Items.length === 0) {
-        throw new Error(`no result for ${word.replace(/[^a-zA-Z ]/g, '')}`);
+        throw new Error(`${wordFilter}`);
       }
-
+      // if Data in not array
       if (res.data.Items.length) {
         setItems(res.data.Items);
       } else {
