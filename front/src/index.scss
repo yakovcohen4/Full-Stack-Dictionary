@@ -73,7 +73,6 @@ body {
 
 // search word
 .choose-pos {
-  // z-index: 1;
   padding-left: 0px;
   li {
     min-width: 200px;
@@ -198,7 +197,7 @@ body {
   text-align: left;
   animation: drop 1500ms ease;
   h3 {
-    font-family: cursive;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 2em;
     font-weight: 500;
     margin-top: 100px;
@@ -207,6 +206,7 @@ body {
   div {
     margin: 10px;
     padding: 0.5px;
+    padding-top: 0.2rem;
     span {
       margin-top: 1.5em;
       p {
@@ -215,6 +215,7 @@ body {
         font-weight: 300;
         margin: 0;
         margin-left: 0.5em;
+        padding-top: 0.4rem;
       }
     }
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -224,7 +225,7 @@ body {
       li {
         margin: 10px 10px 5px 5px;
         font-weight: 500;
-        border-bottom: #22a6b3 1px solid;
+        border-bottom: #0d6b1c 1.5px solid;
       }
     }
   }
@@ -239,13 +240,12 @@ $gray: #160e86;
 
 form .headers-h5 {
   text-align: left;
-  font-family: cursive;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 2em;
   font-weight: 500;
   margin-left: 0.5em;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  // z-index: 5;
+  margin-bottom: -0.1em;
 }
 
 .form-tag {
@@ -318,7 +318,6 @@ form .headers-h5 {
 .form-search-box-div {
   margin: 0% 15% 0% 2%;
   position: relative;
-  // z-index: 1;
 }
 .form-explanation-search-h2 {
   text-align: left;
