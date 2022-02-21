@@ -123,12 +123,15 @@ function SearchWord() {
           </div>
 
           {Items && (
-            <ResultSearch
-              data={Items}
-              setData={setItems}
-              setLoading={setLoading}
-              setError={setError}
-            />
+            <div className="result">
+              <span className="word-result">{Items[0].word}</span>
+              <ResultSearch
+                data={Items}
+                setData={setItems}
+                setLoading={setLoading}
+                setError={setError}
+              />
+            </div>
           )}
         </form>
       )}

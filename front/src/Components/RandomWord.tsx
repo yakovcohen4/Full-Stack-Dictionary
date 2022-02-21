@@ -98,12 +98,15 @@ function RandomWord() {
             </div>
           </div>
           {data && (
-            <ResultSearch
-              data={data}
-              setData={setData}
-              setLoading={setLoading}
-              setError={setError}
-            />
+            <div className="result" id="result-random-word">
+              <span className="word-result">{data[0].word}</span>
+              <ResultSearch
+                data={data}
+                setData={setData}
+                setLoading={setLoading}
+                setError={setError}
+              />
+            </div>
           )}
         </form>
       )}
