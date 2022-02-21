@@ -91,34 +91,37 @@ function SearchWord() {
                 Search Word...
               </label>
 
-              <button className="form-btn-search">
-                <i className="fas fa-search"></i>
-              </button>
-            </div>
-            <div className="form-div-choose-pos">
-              <ul className="choose-pos">
-                <li>
-                  Choose Part Of Speech:{' '}
-                  <i className="fa-solid fa-square-caret-down"></i>
-                  <ul>
-                    <li>
-                      <span onClick={() => setPartOfSpeech(null)}>{'All'}</span>
-                    </li>
-                    {posList.map((part, i) => {
-                      return (
-                        <li key={i}>
-                          <span onClick={() => setPartOfSpeech(part.value)}>
-                            {part.key}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              </ul>
-              <span className="span-part-of-speech-choose">
-                {PartOfSpeech ? PartOfSpeech : 'All'}
-              </span>
+                <button className="form-btn-search">
+                  <i className="fas fa-search"></i>
+                </button>
+              </div>
+              <div className="form-div-choose-pos">
+                <ul className="choose-pos">
+                  <li>
+                    Part Of Speech:{' '}
+                    <i className="fa-solid fa-square-caret-down"></i>
+                    <ul>
+                      <li>
+                        <span onClick={() => setPartOfSpeech(null)}>
+                          {'All'}
+                        </span>
+                      </li>
+                      {posList.map((part, i) => {
+                        return (
+                          <li key={i}>
+                            <span onClick={() => setPartOfSpeech(part.value)}>
+                              {part.key}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </li>
+                </ul>
+                <span className="span-part-of-speech-choose">
+                  {PartOfSpeech ? PartOfSpeech : 'All'}
+                </span>
+              </div>
             </div>
           </div>
 

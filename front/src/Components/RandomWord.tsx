@@ -60,33 +60,37 @@ function RandomWord() {
               You can search random word and get all part of speech, or search
               with specific part of speech.
             </h2>
-
-            <div className="form-div-choose-pos">
-              <ul className="choose-pos">
-                <li>
-                  Choose Part Of Speech:{' '}
-                  <i className="fa-solid fa-square-caret-down"></i>
-                  <ul>
-                    <li>
-                      <span onClick={() => setPartOfSpeech(null)}>
-                        {'Random'}
-                      </span>
-                    </li>
-                    {posList.map((part, i) => {
-                      return (
-                        <li key={i}>
-                          <span onClick={() => setPartOfSpeech(part.value)}>
-                            {part.key}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              </ul>
-              <span className="span-part-of-speech-choose">
-                {PartOfSpeech ? PartOfSpeech : 'Random'}
-              </span>
+            <div className="form-box-search-and-pos-desktop">
+              <div className="form-div-choose-pos">
+                <ul className="choose-pos">
+                  <li>
+                    Part Of Speech:{' '}
+                    <i className="fa-solid fa-square-caret-down"></i>
+                    <ul>
+                      <li>
+                        <span onClick={() => setPartOfSpeech(null)}>
+                          {'Random'}
+                        </span>
+                      </li>
+                      {posList.map((part, i) => {
+                        return (
+                          <li key={i}>
+                            <span onClick={() => setPartOfSpeech(part.value)}>
+                              {part.key}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </li>
+                </ul>
+                <span
+                  className="span-part-of-speech-choose"
+                  id="span-part-of-speech-choose-random-word"
+                >
+                  {PartOfSpeech ? PartOfSpeech : 'Random'}
+                </span>
+              </div>
             </div>
             <div id={'search-box-pos'}>
               <button
