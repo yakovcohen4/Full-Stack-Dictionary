@@ -24,7 +24,6 @@ function RandomWord() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    // setData(null);
     try {
       // if part of speech is 'Random' (null), get random part of speech
       const part =
@@ -39,7 +38,6 @@ function RandomWord() {
       setData([res.data]);
     } catch (error: any) {
       setError(error.message);
-      setData(null);
       setTimeout(() => {
         setError(null);
       }, 6000);
