@@ -15,7 +15,7 @@ function RandomWord() {
   const [PartOfSpeech, setPartOfSpeech] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<null | Item[]>(null);
-  const [error, setError] = useState<null | string>('null');
+  const [error, setError] = useState<null | string>(null);
 
   /***** FUNCTIONS *****/
   const handleSubmit = async (
@@ -50,7 +50,7 @@ function RandomWord() {
       {loading ? (
         <Loading />
       ) : error ? (
-        <ErrorPage wordError={error} />
+        <ErrorPage wordError={error} setError={setError} />
       ) : (
         <form className="form-tag">
           <h3 className="headers-h5">Random Word - POS</h3>

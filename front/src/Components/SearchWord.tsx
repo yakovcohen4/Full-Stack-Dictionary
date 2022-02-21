@@ -67,7 +67,7 @@ function SearchWord() {
       {loading ? (
         <Loading />
       ) : error ? (
-        <ErrorPage wordError={error} />
+        <ErrorPage wordError={error} setError={setError} />
       ) : (
         <form className="form-tag" onSubmit={e => handleSubmit(e)}>
           <h3 className="headers-h5">Search Word</h3>
