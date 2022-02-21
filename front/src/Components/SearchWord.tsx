@@ -76,20 +76,21 @@ function SearchWord() {
               speech.
               <br /> Also, you can search by clicking on the result words.
             </h2>
-            <div className="form-search-box-div">
-              <input
-                type="input"
-                className="form__field"
-                placeholder="Type to Search..."
-                name="name"
-                value={word ? word : ''}
-                onChange={e => handleChange(e)}
-                id="name"
-                required
-              />
-              <label htmlFor="name" className="form__label">
-                Search Word...
-              </label>
+            <div className="form-box-search-and-pos-desktop">
+              <div className="form-search-box-div">
+                <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Type to Search..."
+                  name="name"
+                  value={word ? word : ''}
+                  onChange={e => handleChange(e)}
+                  id="name"
+                  required
+                />
+                <label htmlFor="name" className="form__label">
+                  Search Word...
+                </label>
 
                 <button className="form-btn-search">
                   <i className="fas fa-search"></i>
