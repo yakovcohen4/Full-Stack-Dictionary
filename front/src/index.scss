@@ -37,12 +37,15 @@ body {
 
 // items-result
 .result {
-  height: calc(100vh - 70px);
-  height: 69%;
+  height: 68%;
+  min-width: 70%;
+}
+#result-random-word {
+  height: 70%;
 }
 .result-items {
   overflow-y: auto;
-  height: 70%;
+  height: 90%;
 }
 // item-result
 .item {
@@ -65,8 +68,13 @@ body {
   text-transform: lowercase;
   font-size: 1.8rem;
   font-weight: 600;
+  transition: all 0.5s ease;
   &::first-letter {
     text-transform: uppercase;
+  }
+  &:hover {
+    color: #160e86;
+    letter-spacing: 2px;
   }
 }
 
