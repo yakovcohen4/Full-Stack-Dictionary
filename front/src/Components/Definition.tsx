@@ -23,7 +23,7 @@ function Definitions({
       // if word is empty -> dont send to server
       if (wordFilter === ' ') {
         setLoading(false);
-        throw new Error(' ');
+        throw new Error('search again');
       }
 
       const res = await axios.get(`${BASE_URL}/${wordFilter}`);

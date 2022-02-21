@@ -26,6 +26,7 @@ function RandomWord() {
     setError(null);
     // setData(null);
     try {
+      // if part of speech is 'Random' (null), get random part of speech
       const part =
         PartOfSpeech === null
           ? posList[Math.floor(Math.random() * posList.length)].value

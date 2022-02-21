@@ -30,10 +30,9 @@ function SearchWord() {
     setLoading(true);
     setError(null);
     try {
-      const wordWithOutSpace = word!.replace(/\s/g, 'space');
-      const wordWithOutSpecialChar = word!.replace(/[^\w\s]/gi, '');
-
-      if (word! !== wordWithOutSpecialChar || word! !== wordWithOutSpace) {
+      // if word is not a letters in english, throw error
+      const wordValid = /^[a-z]+$/gi.test(word!);
+      if (!wordValid) {
         setLoading(false);
         throw new Error('search again');
       }
