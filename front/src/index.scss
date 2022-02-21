@@ -248,7 +248,6 @@ form .headers-h5 {
 
 .form-tag {
   animation: drop 1200ms ease;
-  // position: relative;
   margin-top: 80px;
   height: 90vh;
 }
@@ -262,10 +261,9 @@ form .headers-h5 {
   outline: 0;
   font-size: 1.3rem;
   color: black;
-  padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
-
+  padding: 10px 0 0 0;
   &::placeholder {
     color: transparent;
   }
@@ -273,11 +271,12 @@ form .headers-h5 {
   &:placeholder-shown ~ .form__label {
     font-size: 1.3rem;
     cursor: text;
-    top: 22px;
+    top: 18px;
   }
 }
 
 .form__label {
+  // padding: 7px 0 0 0;
   position: absolute;
   left: 19px;
   top: -5px;
@@ -290,14 +289,15 @@ form .headers-h5 {
 .form__field:focus {
   ~ .form__label {
     position: absolute;
-    top: -5px;
+    top: -8px;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
     color: $primary;
     font-weight: 600;
   }
-  padding-bottom: 6px;
+  // padding-bottom: 6px;
+  padding: 9px 0 0 0;
   font-weight: 600;
   border-width: 3px;
   border-image: linear-gradient(to right, $primary, $secondary);
@@ -320,7 +320,7 @@ form .headers-h5 {
 }
 .form-explanation-search-h2 {
   text-align: left;
-  margin: 5% 0% 5% 0%;
+  margin: 2.5% 0% 2.5% 0%;
   font-size: 1.1em;
   font-weight: 500;
   padding: 0px 10px;
@@ -342,7 +342,7 @@ form .headers-h5 {
   pointer-events: painted;
 }
 .form-btn-search:focus {
-  width: 300px;
+  width: 100px;
   border-radius: 0px;
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -370,7 +370,7 @@ form .headers-h5 {
 }
 
 .form-div-choose-pos {
-  margin-left: 1.8rem;
+  margin-left: 1%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -391,7 +391,6 @@ form .headers-h5 {
   z-index: -1;
   font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   .img-error {
-    // animation: drop 500ms ease;
     animation: move 1s infinite 1.2s ease-in-out, drop 1700ms ease;
     animation-direction: alternate;
     height: 80%;
@@ -409,7 +408,6 @@ form .headers-h5 {
     span {
       font-size: 1.3em;
       font-weight: 550;
-      // font-style: inherit;
     }
   }
 }
