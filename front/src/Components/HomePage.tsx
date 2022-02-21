@@ -13,8 +13,8 @@ const HomePage = () => {
           <li>Get random words from a specific part of speech</li>
           <li>Get random words in random parts of speech</li>
           <li>
-            By clicking on any of the words in the results, you can switch to
-            the definition of the same word!
+            By clicking on any of the words in the results, you can search and
+            get all definition of the word!
           </li>
         </ul>
       </div>

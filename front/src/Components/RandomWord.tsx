@@ -56,7 +56,8 @@ function RandomWord() {
           <h3 className="headers-h5">Random Word - POS</h3>
           <div className="form-search">
             <h2 className="form-explanation-search-h2">
-              You can search random word with specific part of speech.
+              You can search random word and get all part of speech, or search
+              with specific part of speech.
             </h2>
 
             <div className="form-div-choose-pos">
