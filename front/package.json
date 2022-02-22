@@ -2,6 +2,7 @@
   "name": "aws-dictionary-front",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://dictionary-yakov2.s3-website-eu-west-1.amazonaws.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
