@@ -419,6 +419,53 @@ form .headers-h5 {
       font-weight: 550;
     }
   }
+  // button error page
+  .button {
+    animation: drop 1700ms ease;
+    pointer-events: auto;
+    cursor: pointer;
+    background: #e7e7e7;
+    border: none;
+    padding: 7.5% 0 10% 0;
+    margin: 1rem 3rem;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+  }
+  .button::before,
+  .button::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .button--mimas {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    color: #fff;
+    background: #e7e7e7;
+  }
+  .button--mimas span {
+    position: relative;
+    mix-blend-mode: difference;
+  }
+  .button--mimas::before {
+    content: '';
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  }
+  .button--mimas:hover::before {
+    transform: translate3d(100%, 0, 0);
+  }
 }
 
 @keyframes move {
@@ -500,6 +547,9 @@ form .headers-h5 {
       span {
         font-size: 1.3em;
       }
+    }
+    .button {
+      padding: 5% 0 10% 0;
     }
   }
   // form
