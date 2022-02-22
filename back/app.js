@@ -25,5 +25,15 @@ app.use('/', searchRouter);
 /***** Error MiddleWares *****/
 app.use(errorHandlerMiddleware);
 
+const listener = app.listen(8000, () =>
+  console.log(`app listening at http://localhost:${8000}`)
+);
+
+app.killServer = () => {
+  listener.close();
+};
+
 // export the app to the serverless framework
 module.exports.handler = serverless(app);
+// export app to tests
+module.exports = app;
