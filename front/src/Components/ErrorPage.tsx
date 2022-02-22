@@ -19,7 +19,9 @@ function ErrorPage({
         We've search more 100,000 words, but did not match{' '}
         <span>{wordError}</span>.
       </div>
-      <button onClick={() => errorHandle()}>back to search</button>
+      <button className="button button--mimas" onClick={() => errorHandle()}>
+        <span>back to search</span>
+      </button>
     </div>
   );
 }
