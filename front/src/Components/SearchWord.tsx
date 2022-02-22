@@ -34,7 +34,7 @@ function SearchWord() {
       const wordValid = /^[a-z]+$/gi.test(word!);
       if (!wordValid) {
         setLoading(false);
-        throw new Error('search again');
+        throw new Error('not a word in English');
       }
 
       // search word or word & part of speech
