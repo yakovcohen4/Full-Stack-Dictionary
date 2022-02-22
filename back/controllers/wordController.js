@@ -1,7 +1,8 @@
-const AWS = require('aws-sdk');
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
+const { TABLE_NAME, REGION } = require('../utils/constants');
 
-const { TABLE_NAME } = require('../utils/constants');
+const AWS = require('aws-sdk');
+AWS.config.update({ region: REGION }); // for the test
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 // Search by word
 exports.findWord = async (req, res) => {
