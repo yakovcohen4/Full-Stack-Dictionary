@@ -7,6 +7,10 @@ require('dotenv').config();
 // routers
 const { searchRouter } = require('./routers/searchRouter');
 
+const {
+  errorHandlerMiddleware,
+} = require('./middleWare/errorHandlerMiddleWare');
+
 // middle-ware
 app.use(cors());
 
@@ -17,6 +21,9 @@ app.get('/', function (req, res) {
 
 // searchRouter
 app.use('/', searchRouter);
+
+/***** Error MiddleWares *****/
+app.use(errorHandlerMiddleware);
 
 // export the app to the serverless framework
 module.exports.handler = serverless(app);
