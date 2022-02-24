@@ -47,7 +47,6 @@ describe('search word test', () => {
       .expect(404)
       .expect('Content-Type', /application\/json/);
 
-    console.log(res);
     expect(res.body.error).toEqual('no result for this word');
   }, 80000);
 
