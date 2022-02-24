@@ -6,4 +6,16 @@ const TABLE_NAME = 'dictionary';
 // Region
 const REGION = 'eu-west-1';
 
-module.exports = { TABLE_NAME, REGION };
+// part of speech list
+const partOfSpeechList = [
+  'n.',
+  'pron.',
+  'v.',
+  'a.',
+  'adv.',
+  'prep.',
+  'conj.',
+  'interj.',
+];
+
+module.exports = { TABLE_NAME, REGION, partOfSpeechList };
