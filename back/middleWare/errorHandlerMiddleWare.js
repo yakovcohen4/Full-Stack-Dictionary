@@ -17,6 +17,13 @@ function errorHandlerMiddleware(err, req, res, next) {
   ) {
     return res.status(404).json({ error: err.message });
   }
+  // word and part of speech search error
+  else if (
+    err.status === 404 &&
+    err.message === 'no result for this word & part of speech'
+  ) {
+    return res.status(404).json({ error: err.message });
+  }
   // other error
   if (!err.status) {
     return res.status(500).send({ error: 'Internal server error' });
