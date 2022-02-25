@@ -25,7 +25,22 @@
     "start": "set PORT=3006 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/**/__stories__/",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": [
+      "jest-junit"
+    ],
+    "transform": {
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +59,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "^2.12.1"
   }
 }
