@@ -285,7 +285,6 @@ form .headers-h5 {
 }
 
 .form__label {
-  // padding: 7px 0 0 0;
   position: absolute;
   left: 19px;
   top: -5px;
@@ -305,7 +304,6 @@ form .headers-h5 {
     color: $primary;
     font-weight: 600;
   }
-  // padding-bottom: 6px;
   padding: 9px 0 0 0;
   font-weight: 600;
   border-width: 3px;
@@ -407,7 +405,6 @@ form .headers-h5 {
   }
   .error-header {
     font-size: 1.5rem;
-    // font-weight: 500;
     margin-top: 0;
     animation: drop 1700ms ease;
   }
@@ -530,7 +527,6 @@ form .headers-h5 {
     opacity: 1;
     border-radius: 50em;
     height: 70vh;
-    // left: 50%;
     transform: translateX(-50%);
   }
   // error page
