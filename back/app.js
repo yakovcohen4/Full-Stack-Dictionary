@@ -25,8 +25,8 @@ app.use('/', searchRouter);
 /***** Error MiddleWares *****/
 app.use(errorHandlerMiddleware);
 
-const listener = app.listen(8000, () =>
-  console.log(`app listening at http://localhost:${8000}`)
+const listener = app.listen(3000, () =>
+  console.log(`app listening at http://localhost:${3000}`)
 );
 
 app.killServer = () => {
