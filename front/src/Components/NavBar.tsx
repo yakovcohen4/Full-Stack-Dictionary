@@ -43,7 +43,7 @@ const NavBar = () => {
             closeNav();
           }}
         >
-          Random words
+          Random Words
         </span>
       </span>
 
