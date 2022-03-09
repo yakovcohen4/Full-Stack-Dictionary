@@ -1,3 +1,14 @@
+const posList = [
+  '[n.]',
+  '[pron.]',
+  '[v.]',
+  '[a.]',
+  '[adv.]',
+  '[prep.]',
+  '[conj.]',
+  '[interj.]',
+];
+
 describe('Dictionary app', function () {
   beforeEach(function () {
     // open app
@@ -91,5 +102,46 @@ describe('Dictionary app', function () {
         .should('have.text', '[v.]'); // check if the result is Verb
     });
   });
+
+  // Random word page tests
+  describe('Random word page test', function () {
+    beforeEach(function () {
+      cy.get('.open-nav').click();
+      cy.contains('Random Words').click();
+      cy.contains('Random Word');
+    });
+
+    it('user can search Random word in and the get result', function () {
+      // click on search button
+      cy.get('.form-btn-search').click(); // click on search button
+      cy.wait(5000);
+
+      // check if the result OK
+      cy.get('.result-items').children().should('have.length', 1); // check if there is only one result
+      cy.get('.item-pos')
+        .invoke('text')
+        .then(text => {
+          expect(posList).to.include(text);
+        });
+    });
+
+    it('user can search Random word with POS(Verb) and the get OK result', function () {
+      // choose POS - Verb
+      cy.get('.choose-pos > li').click({ force: true }); // hover on the dropdown
+      cy.get('.choose-pos > li > ul > li')
+        .contains('Verb')
+        .click({ force: true }); // click on Verb
+
+      // click on search button
+      cy.get('.form-btn-search').click(); // click on search button
+      cy.wait(5000);
+
+      // check if the result OK
+      cy.get('.result-items').children().should('have.length', 1); // check if there is only one result
+      cy.get('.result-items')
+        .get('.item-pos')
+        .first()
+        .should('have.text', '[v.]'); // check if the result is Verb
+    });
   });
 });
