@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const app = require('../app.js');
+const app = require('../../app.js');
 
 const api = supertest(app);
 
@@ -19,56 +19,45 @@ const resultOfWordExample = {
         'Precedent; case; instance. Example, Instance. The discrimination to be made between these two words relates to cases in which we give "instances" or "examples" of things done. An instance denotes the single case then "standing" before us; if there be others like it, the word does not express this fact. On the contrary, an example is one of an entire class of like things, and should be a true representative or sample of that class. Hence, an example proves a rule or regular course of things; an instance simply points out what may be true only in the case presented. A man\'s life may be filled up with examples of the self- command and kindness which marked his character, and may present only a solitary instance of haste or severity. Hence, the word "example" should never be used to describe what stands singly and alone. We do, however, sometimes apply the word instance to what is really an example, because we are not thinking of the latter under this aspect, but solely as a case which "stands before us." See Precedent.',
       word: 'EXAMPLE',
     },
+    {
+      definitions: [
+        'To set an example for; to give a precedent for; to exemplify; to give an instance of; to instance. [Obs.] "I may example my digression by some mighty precedent." Shak. Burke devoted himself to this duty with a fervid assiduity that has not often been exampled, and has never been surpassed. J. Morley.',
+      ],
+      pos: 'v.',
+      word: 'EXAMPLE',
+    },
   ],
-  Count: 1,
-  ScannedCount: 1,
+  Count: 2,
+  ScannedCount: 2,
 };
 
 describe('search word test', () => {
-  test('of search the word "example" with POS "n." -> status: 200, body: { Items: [...example] }', async () => {
+  test('of search the word "example" -> status: 200, body: { Items: [...example] }', async () => {
     const res = await api
-      .get('/example/n.')
+      .get('/example')
       .expect(200)
       .expect('Content-Type', /application\/json/);
 
     expect(res.body).toEqual(resultOfWordExample);
-  }, 80000);
+  }, 8000);
 
-  test('of search the word "example/nounVerb" -> status: 400, message: "not part of speech in English"', async () => {
+  test('of search the word "exemple" -> status: 404, message: "no result for this word"', async () => {
     const res = await api
-      .get('/example/nounVerb')
-      .expect(400)
+      .get('/exemple')
+      .expect(404)
       .expect('Content-Type', /application\/json/);
 
-    expect(res.body.error).toEqual('not part of speech in English');
-  }, 80000);
+    expect(res.body.error).toEqual('no result for this word');
+  }, 8000);
 
-  test('of search the word "example123/n." -> status: 400, message: "not word in English"', async () => {
+  test('of search the word "example123" -> status: 400, message: "not word in English"', async () => {
     const res = await api
-      .get('/example123/n.')
+      .get('/example123')
       .expect(400)
       .expect('Content-Type', /application\/json/);
 
     expect(res.body.error).toEqual('not word in English');
-  }, 80000);
-
-  test('of search the word "exemple" with POS "n." -> status: 404, message: "no result for this word & part of speech"', async () => {
-    const res = await api
-      .get('/exemple/n.')
-      .expect(404)
-      .expect('Content-Type', /application\/json/);
-
-    expect(res.body.error).toEqual('no result for this word & part of speech');
-  }, 80000);
-
-  test('of search the word "example/pron." -> status: 404, message: "no result for this word & part of speech"', async () => {
-    const res = await api
-      .get('/example/pron.')
-      .expect(404)
-      .expect('Content-Type', /application\/json/);
-
-    expect(res.body.error).toEqual('no result for this word & part of speech');
-  }, 80000);
+  }, 8000);
 });
 
 afterAll(() => {

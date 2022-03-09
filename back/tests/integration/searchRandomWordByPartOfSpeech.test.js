@@ -1,6 +1,6 @@
 const supertest = require('supertest');
-const app = require('../app.js');
-const { partOfSpeechList } = require('../utils/constants');
+const app = require('../../app.js');
+const { partOfSpeechList } = require('../../utils/constants');
 
 const api = supertest(app);
 
@@ -16,7 +16,7 @@ describe('search random word by part of speech', () => {
       expect(res.body.pos).toEqual(partOfSpeechList[index]);
       expect(typeof res.body.word).toEqual('string');
     }
-  }, 80000);
+  }, 8000);
 
   test('of search random word with part of speech with Bad Request -> status: 404, message: "not part of speech in English"', async () => {
     const res = await api
@@ -25,7 +25,7 @@ describe('search random word by part of speech', () => {
       .expect('Content-Type', /application\/json/);
 
     expect(res.body.error).toEqual('not part of speech in English');
-  }, 150000);
+  }, 15000);
 });
 
 afterAll(() => {
