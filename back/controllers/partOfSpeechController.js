@@ -1,4 +1,5 @@
-const { TABLE_NAME, REGION, partOfSpeechList } = require('../utils/constants');
+const { TABLE_NAME, REGION } = require('../utils/constants');
+const { partOfSpeechValidation } = require('../utils/partOfSpeechValidation');
 
 const AWS = require('aws-sdk');
 AWS.config.update({ region: REGION }); // for the test
@@ -23,10 +24,9 @@ exports.partOfSpeech = async (req, res, next) => {
   };
 
   try {
-    // check if part of speech is in the list
-    if (!partOfSpeechList.includes(part)) {
-      throw { status: 400, message: 'not part of speech in English' };
-    }
+    // part of speech Validation - check if Part is OK (noun,verb..)
+    partOfSpeechValidation(part);
+
     const result = await dynamoDB.scan(params).promise();
     if (result.Items.length === 0) {
       throw { status: 404, message: 'no result for this part of speech' };
