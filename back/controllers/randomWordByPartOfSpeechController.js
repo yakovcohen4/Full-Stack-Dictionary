@@ -6,7 +6,7 @@ AWS.config.update({ region: REGION }); // for the test
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 // Search by Part Of Speech random word
-exports.partOfSpeech = async (req, res, next) => {
+exports.randomWordByPartOfSpeech = async (req, res, next) => {
   const { part } = req.params;
   const { letter } = req.query;
 
