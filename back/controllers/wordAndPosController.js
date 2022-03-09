@@ -1,4 +1,5 @@
 const { TABLE_NAME, REGION, partOfSpeechList } = require('../utils/constants');
+const { wordEnglishValidation } = require('../utils/wordValidation');
 
 const AWS = require('aws-sdk');
 AWS.config.update({ region: REGION }); // for the test
@@ -18,15 +19,12 @@ exports.findWordAndPos = async (req, res, next) => {
   };
 
   try {
-    // Validation - word is not word in english (A-Z)
-    const wordValid = /^[a-z]+$/gi.test(word);
-    if (!wordValid) {
-      throw { status: 400, message: 'not word in English' };
-    }
     // check if part of speech is in the list
     if (!partOfSpeechList.includes(partOfSpeech)) {
       throw { status: 400, message: 'not part of speech in English' };
     }
+    // word Validation - check if word is in english (A-Z)
+    wordEnglishValidation(word);
     const result = await dynamoDB.query(params).promise();
     // The search did not find a word
     if (result.Items.length === 0) {

@@ -1,4 +1,5 @@
 const { TABLE_NAME, REGION } = require('../utils/constants');
+const { wordEnglishValidation } = require('../utils/wordValidation');
 
 const AWS = require('aws-sdk');
 AWS.config.update({ region: REGION }); // for the test
@@ -17,11 +18,9 @@ exports.findWord = async (req, res, next) => {
   };
 
   try {
-    // Validation - word is not word in english (A-Z)
-    const wordValid = /^[a-z]+$/gi.test(word);
-    if (!wordValid) {
-      throw { status: 400, message: 'not word in English' };
-    }
+    // word Validation - check if word is in english (A-Z)
+    wordEnglishValidation(word);
+
     const result = await dynamoDB.query(params).promise();
     // The search did not find a word
     if (result.Items.length === 0) {
