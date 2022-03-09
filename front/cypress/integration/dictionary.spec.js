@@ -37,5 +37,59 @@ describe('Dictionary app', function () {
       ); // page contains explanation to the user
     });
   });
+
+  // Search word page tests
+  describe('Search word page tests', function () {
+    beforeEach(function () {
+      cy.get('.open-nav').click(); // open nav
+      cy.contains('Search Words').click(); // click on Search Words
+      cy.wait(500);
+      cy.contains('Search Word'); // check if page contains Search Word Page
+    });
+
+    it('user search "example" in search word Page and the result OK', function () {
+      cy.get('.form-search-box-div > input')
+        .click({ force: true })
+        .type('example'); // type example in the search field
+
+      // click on search button
+      cy.get('.form-btn-search').click();
+      cy.wait(5000);
+
+      // check if the result OK
+      cy.get('.word-result').should('have.text', 'EXAMPLE'); // check if the result word is EXAMPLE
+      cy.get('.result-items').children().should('have.length', 2); // check if there is only one result
+      cy.get('.result-items')
+        .get('.item-pos')
+        .first()
+        .should('have.text', '[n.]'); // check if the first result is noun
+      cy.get('.result-items')
+        .get('.item-pos')
+        .last()
+        .should('have.text', '[v.]'); // check if the second result is Verb
+    });
+
+    it('user search "example" with POS(Verb) in search word Page and the result OK', function () {
+      cy.get('.form-search-box-div > input')
+        .click({ force: true })
+        .type('example'); // type example in the search field
+      cy.get('.choose-pos > li').click({ force: true }); // hover on the dropdown
+      cy.get('.choose-pos > li > ul > li')
+        .contains('Verb')
+        .click({ force: true }); // click on Verb
+
+      // click on search button
+      cy.get('.form-btn-search').click();
+      cy.wait(5000);
+
+      // check if the result OK
+      cy.get('.word-result').should('have.text', 'EXAMPLE'); // check if the result word is EXAMPLE
+      cy.get('.result-items').children().should('have.length', 1); // check if there is only one result
+      cy.get('.result-items')
+        .get('.item-pos')
+        .first()
+        .should('have.text', '[v.]'); // check if the result is Verb
+    });
+  });
   });
 });
