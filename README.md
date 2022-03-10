@@ -10,7 +10,7 @@
 - #### Serverless
 - #### AWS ☁ - DynamoDB
 
-#### Packages 📦 - Express, aws-sdk, serverless-http , serverless-offline, dotenv, Cors, Nodemon.
+#### Packages 📦 - Express, Aws-sdk, Serverless-http , Serverless-offline, Dotenv, Cors, Nodemon, Jest, Supertest.
 
 ### Front ⏩ :
 
@@ -20,46 +20,78 @@
 
 - #### AWS ☁ - S3 simple storage service
 
-#### Packages 📦 - Axios, nanoid, react-router-dom ,sass.
+#### Packages 📦 - Axios, Nanoid, React-router-dom ,Sass, Cypress.
 
 ---
 
 ## My App 📖 -
 
-### <u>_Front Repo_</u> - https://github.com/yakovcohen4/AWS-Dictionary-Front
+## Back & Front repo -
 
-### Test The App - 🔗 [Yakov's Dictionary](http://dictionary-yakov2.s3-website-eu-west-1.amazonaws.com/)
+**_Work separately on 2 different repositories then connect them and continue working_**
 
 ### <u>_Back Repo_</u> - https://github.com/yakovcohen4/AWS-Dictionary-Back
 
+### <u>_Front Repo_</u> - https://github.com/yakovcohen4/AWS-Dictionary-Front
+
+## Global use - 🌎
+
+### Test The App - 🔗 [Yakov's Dictionary](http://dictionary-yakov2.s3-website-eu-west-1.amazonaws.com/)
+
+- **The Front was served in S3 bucket as a static file.**
+
 ### Test The Server 💯- [My server to get JSON answers](https://moj90vlvy0.execute-api.eu-west-1.amazonaws.com/dev)
 
-- **The back-end works with - <br />1. DynamoDB to store data. <br />2. The app by REST API (API Gateway).**
+- **<br />1. DynamoDB to store data. <br />2. Serve the app by REST API (Api Gateway) in conjunction with Lambda serverless function.**
 
 #### _If the server is blocked, it's because you will not waste my money_ 💸 ⛔
 
+## Local use - 📌
+
+### Github 🐱‍👤
+
+- **Clone this repo**
+- **Run `npm i` on the `Back` and `Front` dirs - To install all the dependencies**
+
+#### To seed the DB -
+
+- **Download the AWS CLI and configure your details**
+- **Create a table on dynamoDB and switch the `TABLE_NAME` in `back/utils/constants`**
+- **Choose your `REGION` in `back/utils/constants`**
+- **Create `.env` file and save - ACCESS_KEY_ID=?, SECRET_ACCESS_KEY=?**
+- **Run `node /back/index` to start seeding your table (This may take some time)**
+
+#### To upload the backend as lambda
+
+- **[Download serverless](https://www.serverless.com/framework/docs/getting-started)**
+- **Run `serverless deploy` on `back` dir.**
+
+#### To run the app
+
+- **Back - <br />run `npm run dev` on `back` dir <br />_OR_<br />
+  run `serverless offline` on the `cmd cli` (PORT=3000)**
+- **Front - <br /> Check that `BASE_URL` on `front/src/app` is `http://localhost:3000` <br />Run `npm start` on `front` dir (PORT=3006)**
+
 ### Features 😱💥 -
 
-- Over 30,000 words!
+- Over 100,000 words!
 - Search by word and get all its definitions in the different parts of speech.
 - Search by word and part of speech desired.
+- Receiving a random word and get all its definitions in the different parts of speech.
 - Receiving a random word in a particular part of speech.
-- By clicking on any of the words you can switch to the definition of the same word!
+- By clicking each word in the result words, your search for the clicked word!
 - Mobile first design!
-- Nice loader.
+- Awesome loader.
 
 ### To Do ⛳-
 
 #### Back 🔙 :
 
-- Error handling to fail request.
+- More Unit test.
 
 #### Front ⏩ :
 
-- Show that you can click and get a search by a clicked word.
-- About Page.
 - A Footer.
-- Error Message to client.
 
 ---
 
