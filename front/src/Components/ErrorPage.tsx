@@ -22,7 +22,7 @@ function ErrorPage({
       ) : (
         <div className="error-explanation">
           We've search more 100,000 words, but did not match{' '}
-          <span>{wordError}</span>.
+          <span>{wordError}</span>
         </div>
       )}
       <button className="button button--mimas" onClick={() => errorHandle()}>
