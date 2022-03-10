@@ -101,6 +101,37 @@ describe('Dictionary app', function () {
         .first()
         .should('have.text', '[v.]'); // check if the result is Verb
     });
+
+    it('user search a word with special characters -> get Error', function () {
+      cy.get('.form-search-box-div > input')
+        .click({ force: true })
+        .type('%$#@!{}[]'); // type special characters in the search field
+
+      // click on search button
+      cy.get('.form-btn-search').click();
+      cy.wait(1000);
+
+      // check if the result is Error with correct message
+      cy.contains('We are sorry');
+      cy.contains('Try to search only words in english.');
+    });
+
+    it('user search a word not exists -> get not result', function () {
+      cy.get('.form-search-box-div > input')
+        .click({ force: true })
+        .type('wordNotExists'); // type special characters in the search field
+
+      // click on search button
+      cy.get('.form-btn-search').click();
+      cy.wait(4000);
+
+      // check if the result is Error with correct message
+      cy.contains(
+        // eslint-disable-next-line quotes
+        "We've search more 100,000 words, but did not match wordNotExists"
+      );
+      // cy.contains('Try to search only words in english.');
+    });
   });
 
   // Random word page tests
