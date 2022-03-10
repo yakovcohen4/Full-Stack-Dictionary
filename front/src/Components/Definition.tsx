@@ -14,12 +14,15 @@ function Definitions({
   const searchByClick = async (
     e: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>
   ) => {
-    const word = (e.target as HTMLSpanElement).innerHTML;
+    const word = (e.target as HTMLSpanElement).innerHTML.slice(0, -1);
+    console.log(word);
+
+    const wordFilter = word.replace(/[^a-zA-Z ]/g, '');
+    console.log(wordFilter);
+
     setLoading(true);
 
     try {
-      const wordFilter = word.replace(/[^a-zA-Z ]/g, '');
-
       // if word is empty -> dont send to server
       if (wordFilter === ' ') {
         setLoading(false);
@@ -27,19 +30,25 @@ function Definitions({
       }
 
       const res = await axios.get(`${BASE_URL}/${wordFilter}`);
-      setLoading(false);
 
-      if (res.data.Items.length === 0) {
-        throw new Error(`${wordFilter}`);
-      }
       // if Data in not array
       if (res.data.Items.length) {
         setItems(res.data.Items);
       } else {
         setItems([res.data.Items]);
       }
+      setLoading(false);
     } catch (error: any) {
-      setError(error.message);
+      setLoading(false);
+
+      // Error from the back
+      if (error.response) {
+        setError(`${wordFilter}`);
+      }
+      // Error from the front
+      else {
+        setError(error.message);
+      }
       setTimeout(() => {
         setError(null);
       }, 6000);

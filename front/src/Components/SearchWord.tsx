@@ -40,21 +40,27 @@ function SearchWord() {
       // search word or word & part of speech
       if (PartOfSpeech === null) {
         const res = await axios.get(`${BASE_URL}/${word}`);
-        setLoading(false);
-        if (res.data.Items.length === 0) {
-          throw new Error(`${word}`);
-        }
         setItems(res.data.Items);
+        setLoading(false);
       } else {
         const res = await axios.get(`${BASE_URL}/${word}/${PartOfSpeech}`);
-        setLoading(false);
-        if (res.data.Items.length === 0) {
-          throw new Error(`${word} & ${PartOfSpeech}`);
-        }
         setItems(res.data.Items);
+        setLoading(false);
       }
     } catch (error: any) {
-      setError(error.message);
+      setLoading(false);
+
+      // Error from the back
+      if (error.response) {
+        // different Error - with POS or without POS
+        error.response.data.error === 'no result for this word'
+          ? setError(`${word}.`)
+          : setError(`${word} & ${PartOfSpeech}`);
+      }
+      // Error from the front
+      else {
+        setError(error.message);
+      }
       setTimeout(() => {
         setError(null);
       }, 6000);

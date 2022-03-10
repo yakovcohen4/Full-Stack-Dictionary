@@ -31,13 +31,19 @@ function RandomWord() {
           ? posList[Math.floor(Math.random() * posList.length)].value
           : PartOfSpeech;
       const res = await axios.get(`${BASE_URL}/part-of-speech/${part}`);
-      setLoading(false);
-      if (res.data === 'no result for part of speak') {
-        throw new Error('no result for part of speak');
-      }
       setData([res.data]);
+      setLoading(false);
     } catch (error: any) {
-      setError(error.message);
+      setLoading(false);
+
+      // Error from the back
+      if (error.response) {
+        setError(PartOfSpeech);
+      }
+      // Error from the front
+      else {
+        setError(error.message);
+      }
       setTimeout(() => {
         setError(null);
       }, 6000);
