@@ -58,7 +58,7 @@ describe('Dictionary app', function () {
       cy.contains('Search Word'); // check if page contains Search Word Page
     });
 
-    it('user search "example" in search word Page and the result OK', function () {
+    it('user search "example" in search word Page -> the result OK', function () {
       cy.get('.form-search-box-div > input')
         .click({ force: true })
         .type('example'); // type example in the search field
@@ -80,7 +80,7 @@ describe('Dictionary app', function () {
         .should('have.text', '[v.]'); // check if the second result is Verb
     });
 
-    it('user search "example" with POS(Verb) in search word Page and the result OK', function () {
+    it('user search "example" with POS(Verb) in search word Page -> the result OK', function () {
       cy.get('.form-search-box-div > input')
         .click({ force: true })
         .type('example'); // type example in the search field
@@ -142,7 +142,7 @@ describe('Dictionary app', function () {
       cy.contains('Random Word');
     });
 
-    it('user can search Random word in and the get result', function () {
+    it('user can search Random word in -> get result', function () {
       // click on search button
       cy.get('.form-btn-search').click(); // click on search button
       cy.wait(5000);
@@ -156,7 +156,7 @@ describe('Dictionary app', function () {
         });
     });
 
-    it('user can search Random word with POS(Verb) and the get OK result', function () {
+    it('user can search Random word with POS(Verb) -> get result', function () {
       // choose POS - Verb
       cy.get('.choose-pos > li').click({ force: true }); // hover on the dropdown
       cy.get('.choose-pos > li > ul > li')
