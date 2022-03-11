@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const app = require('../../app.js');
+const { app } = require('../../app.js');
 const { partOfSpeechList } = require('../../utils/constants');
 
 const api = supertest(app);

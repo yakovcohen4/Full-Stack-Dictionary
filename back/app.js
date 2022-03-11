@@ -36,4 +36,4 @@ app.killServer = () => {
 // export the app to the serverless framework
 module.exports.handler = serverless(app);
 // export app to tests
-module.exports = app;
+module.exports.app = app;
