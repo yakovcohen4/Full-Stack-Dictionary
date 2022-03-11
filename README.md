@@ -40,9 +40,9 @@
 
 - **The Front was served in S3 bucket as a static file.**
 
-### Test The Server 💯- [My server to get JSON answers](https://moj90vlvy0.execute-api.eu-west-1.amazonaws.com/dev)
+### Test The Server ✅- [My server to get JSON answers](https://moj90vlvy0.execute-api.eu-west-1.amazonaws.com/dev)
 
-- **<br />1. DynamoDB to store data. <br />2. Serve the app by REST API (Api Gateway) in conjunction with Lambda serverless function.**
+- **The Back work with -<br />1. DynamoDB to store data. <br />2. Serve the app by REST API (Api Gateway) in conjunction with Lambda serverless function.**
 
 #### _If the server is blocked, it's because you will not waste my money_ 💸 ⛔
 
@@ -55,24 +55,60 @@
 
 #### To seed the DB -
 
-- **Download the AWS CLI and configure your details**
-- **Create a table on dynamoDB and switch the `TABLE_NAME` in `back/utils/constants`**
+- **Download the AWS CLI and configure your details.**
+- **Create a table on dynamoDB and switch the `TABLE_NAME` on `back/utils/constants`.**
 - **Choose your `REGION` in `back/utils/constants`**
-- **Create `.env` file and save - ACCESS_KEY_ID=?, SECRET_ACCESS_KEY=?**
-- **Run `node /back/index` to start seeding your table (This may take some time)**
+- **Create `.env` file on `back` dir and save - <br/> 1. ACCESS_KEY_ID = ? <br/> 2. SECRET_ACCESS_KEY = ?**
+- **Run `node index.js` on `back` dir to start seeding your table (This may take some time).**
 
 #### To upload the backend as lambda
 
 - **[Download serverless](https://www.serverless.com/framework/docs/getting-started)**
 - **Run `serverless deploy` on `back` dir.**
 
-#### To run the app
+#### To run the app -
 
 - **Back - <br />run `npm run dev` on `back` dir <br />_OR_<br />
   run `serverless offline` on the `cmd cli` (PORT=3000)**
-- **Front - <br /> Check that `BASE_URL` on `front/src/app` is `http://localhost:3000` <br />Run `npm start` on `front` dir (PORT=3006)**
+- **Front - <br /> Check if the variable `BASE_URL` on `front/src/app` is `http://localhost:3000` <br />Run `npm start` on `front` dir (PORT=3006)**
 
-### Features 😱💥 -
+## Tests 💯 -
+
+### Back 🔙
+
+- ### Unit Test - **_Check Validation_**
+
+  **1. Part Of Speech Validation.**<br/>
+  **2. Word Validation.**
+
+  #### **Run `npm test TestName.test.js` on `back/tests/unit` dir.**
+
+- ### Integration Test - **_Test for connection to the database_**
+
+  **1. Search word.** <br/>
+  **2. Search word with specific Part Of Speech.** <br/>
+  **3. Search Random word with specific Part Of Speech.**
+
+  #### **Run `npm test TestName.test.js` on `back/tests/integration` dir.**
+
+### Front ⏩
+
+- ### Unit Test - **_Test for each of the components._**
+
+  #### **Run `npm test TestName.test.js` on `front/src/tests` dir.**
+
+- ### End-To-End Test - **_Test for each end case._**
+
+  #### Before running the test -
+
+  1.  **Run `npm run dev` on `back` dir.**
+  2.  **Run `npm start` on `front` dir.**
+
+  #### **Run `npm run test:e2e` on `front` dir to run the tests.**
+
+  #### **Run `npm run cypress:open` on `front` dir to open Cypress and watch the tests run.**
+
+## Features 😱💥 -
 
 - Over 100,000 words!
 - Search by word and get all its definitions in the different parts of speech.
@@ -83,13 +119,13 @@
 - Mobile first design!
 - Awesome loader.
 
-### To Do ⛳-
+## To Do ⛳-
 
-#### Back 🔙 :
+### Back 🔙 :
 
 - More Unit test.
 
-#### Front ⏩ :
+### Front ⏩ :
 
 - A Footer.
 
