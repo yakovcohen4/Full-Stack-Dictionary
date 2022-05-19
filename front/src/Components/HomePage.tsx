@@ -2,7 +2,6 @@ const HomePage = () => {
   return (
     <div className="homepage-div">
       <h3 className="headers-h5">Home Page</h3>
-      <h3 className="headers-h5">Yakov</h3>
       <div className="para">
         <span>
           <p>Welcome to my Dictionary</p>
