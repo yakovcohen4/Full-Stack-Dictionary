@@ -15,18 +15,17 @@ jobs:
       run:
         working-directory: front
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build project
         run: npm run build
